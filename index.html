@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>מתכוננות למבחן בעברית – כיתה ח׳</title>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Secular+One&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF4FA;--card:#fff;--ink:#17294B;--mut:#5B6B88;--line:#CFE0F1;--hl:#FFE066;--ok:#17794F;--okb:#DDF4E8;--no:#B3362F;--nob:#FBE3E1;--ac:#2D5BD0;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1A2E;--card:#16243D;--ink:#E8EFFB;--mut:#9DB0D0;--line:#26395C;--hl:#7A6A12;--ok:#6FD6A2;--okb:#133A2A;--no:#FF9A92;--nob:#46201F;--ac:#8FB0FF}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+button{touch-action:manipulation}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Rubik,Arial,sans-serif;line-height:1.7;font-size:17px;padding:16px max(16px,env(safe-area-inset-right)) 16px max(16px,env(safe-area-inset-left))}
+main{max-width:720px;margin:0 auto}
+h1,h2{font-family:'Secular One',Rubik,sans-serif;font-weight:400;margin:0}
+h1{font-size:1.9rem;line-height:1.3}
+.sub{color:var(--mut);margin:4px 0 16px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+nav button{font:inherit;font-size:.9rem;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;min-height:44px;cursor:pointer}
+nav button[aria-current="true"]{border-color:var(--ac);background:var(--ac);color:#fff}
+nav button.done::after{content:" ✓"}
+button:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;margin-bottom:16px;background-image:repeating-linear-gradient(transparent 0 33px,var(--line) 33px 34px)}
+.sheet.plain{background-image:none}
+h2 span{background:var(--hl);padding:0 8px}
+.src{color:var(--mut);font-size:.9rem;margin:8px 0}
+.les p{margin:6px 0}
+.les b{background:var(--hl);padding:0 3px}
+.q{margin:0 0 16px;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+.q p{margin:0 0 8px;font-weight:500}
+.o{display:block;width:100%;text-align:right;font:inherit;border:2px solid var(--line);background:transparent;color:var(--ink);border-radius:8px;padding:10px 14px;min-height:48px;margin:8px 0;font-size:1.05rem;cursor:pointer}
+.o:disabled{cursor:default}
+.o.ok{border-color:var(--ok);background:var(--okb)}
+.o.no{border-color:var(--no);background:var(--nob)}
+.why{margin:8px 0 0;font-size:.95rem;color:var(--mut)}
+.bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px}
+.bar span:last-child{display:flex;flex-wrap:wrap;gap:8px}
+.bar button{font:inherit;border:2px solid var(--ac);background:var(--ac);color:#fff;border-radius:8px;padding:10px 18px;min-height:44px;cursor:pointer}
+.bar button.g{background:transparent;color:var(--ac)}
+.score{font-weight:700}
+@media (min-width:700px){body{padding:28px;font-size:19px}main{max-width:820px}h1{font-size:2.4rem}.sheet{padding:28px}.q{padding:20px}}
+@media (max-width:480px){h1{font-size:1.6rem}.sheet{padding:16px}.bar{flex-direction:column;align-items:stretch}.bar span:last-child button{flex:1}}
+</style>
+</head>
+<body>
+<main>
+<h1>מתכוננות למבחן בעברית</h1>
+<p class="sub">כיתה ח׳ · דצמבר 2026. בוחרות נושא, קוראות את ההסבר ומתרגלות.</p>
+<nav id="nav" aria-label="נושאים"></nav>
+<div id="v"></div>
+</main>
+<script>
+const T=[
+{t:"הבנת הנקרא",s:"מומלץ לתרגל בכל יום",l:["קראי קודם את השאלות, ואז את הטקסט.","<b>חפשי את התשובה בטקסט</b> ולא בידע שלך.","סמני מילות מפתח: מספרים, שמות, מילות ניגוד."],
+p:"בני דור Z גדלו עם טלפון חכם ביד. מחקר בארצות הברית מצא שרבים מהם מעדיפים לקנות בגדים בחנות, אף שהם מבלים שעות ברשת. החוקרים הסבירו שהם רוצים למדוד ולהרגיש את הבד.",
+q:[["מה מצא המחקר?",["כולם קונים רק ברשת","רבים מעדיפים לקנות בגדים בחנות","בני דור Z לא אוהבים בגדים","החוקרים מעדיפים חנויות"],1,"המשפט השני בטקסט אומר זאת במפורש."],
+["מה הסיבה להעדפה, לפי החוקרים?",["המחירים בחנות זולים","אין להם טלפון חכם","הם רוצים למדוד ולהרגיש את הבד","החנויות קרובות לבית"],2,"הסיבה מופיעה במשפט האחרון."]]},
+{t:"אוצר מילים לפי ההקשר",s:"מבחן – חלק קבוע",l:["החליפי את המילה הלא מוכרת במילה שנראית לך מתאימה.","בדקי: <b>האם המשפט עדיין הגיוני?</b>","שימי לב למילים שמסביב: הן רומזות על המשמעות."],
+q:[["המורה שיבחה את התלמיד על מאמציו. שיבחה =",["האשימה","החמיאה","התעלמה","שאלה"],1,"ציון על מאמץ הוא דבר חיובי, ולכן החמיאה."],
+["הוא נאלץ לוותר על הטיול מפני שחלה. נאלץ =",["אולץ","רצה","סירב","שכח"],0,"המחלה הכריחה אותו, לכן אולץ."],
+["הנאום היה תמציתי: חמש דקות בלבד. תמציתי =",["ארוך","משעמם","קצר וממצה","רועש"],2,"הנקודתיים מסבירים: חמש דקות בלבד, כלומר קצר."]]},
+{t:"סוגריים ומירכאות",s:"חוטבים לשון, עמוד 55",l:["<b>סוגריים</b>: הסבר, דוגמה או מידע נוסף שאפשר לוותר עליו.","<b>מירכאות</b>: ציטוט מדויק, שם של יצירה, או מילה בהקשר מיוחד."],
+q:[["גיל ההתבגרות (בין 12 ל־18) הוא תקופה של שינויים. מה תפקיד הסוגריים?",["ציטוט","מידע מבהיר","שם יצירה","ניגוד"],1,"הסוגריים מוסיפים הבהרה על גיל ההתבגרות."],
+["אמר המורה: “המבחן ביום ראשון”. מה תפקיד המירכאות?",["ציטוט מדויק","הסבר מילה","הוספת דוגמה","שם ספר"],0,"המירכאות מסמנות את דברי המורה כפי שנאמרו."],
+["קראתי את “הנסיך הקטן”. מה תפקיד המירכאות?",["ציטוט","ציון שם יצירה","אירוניה","הרחבה"],1,"הנסיך הקטן הוא שם של ספר."]]},
+{t:"קשר לוגי: הוספה, ניגוד, ויתור",s:"עכשיו עברית, עמודים 37–50",l:["<b>הוספה</b>: בנוסף, גם, יתרה מזו.","<b>ניגוד</b>: אבל, לעומת זאת, ואילו.","<b>ויתור</b>: אף על פי ש, למרות ש, אם כי. קורה דבר ההפוך למצופה."],
+q:[["___ הוא למד המון, הוא נכשל במבחן.",["בנוסף לכך ש","אף על פי ש","לכן","כי"],1,"ללמוד המון אמור להצליח, אבל קרה ההפך, וזה ויתור."],
+["“בנוסף לכך, הספר גם זול.” איזה קשר זה?",["הוספה","ניגוד","ויתור","סיבה"],0,"בנוסף לכך מוסיף עוד יתרון."],
+["דנה אוהבת ספורט, ואילו אחותה מעדיפה ספרים. איזה קשר זה?",["הוספה","ניגוד","ויתור","תוצאה"],1,"שתי העדפות שונות זו מזו, והמילה ואילו מסמנת ניגוד."]]},
+{t:"הערת שוליים",s:"במחברת",l:["הערת שוליים באה כדי:","<b>לפרש</b> מילה או מושג · להפנות <b>למומחיות הכותב</b> ולהוסיף אמינות · להפנות למקורות נוספים · לציין <b>מראה מקום</b> של ציטוט · לציין איפה פורסם הטקסט · להרחיב מידע."],
+q:[["הערה: “אקלים: מזג האוויר הממוצע באזור לאורך שנים”. מה תפקידה?",["פירוש מושג","אמינות","ציון מקור","הרחבה"],0,"ההערה מסבירה מה פירוש המילה אקלים."],
+["הערה: “פרופ׳ לוי חוקר את הים כבר עשרים שנה”. מה תפקידה?",["פירוש מילה","הפניה למומחיות הכותב","ציון מראה מקום","ניגוד"],1,"היא מראה שהכותב מומחה, וזה מוסיף אמינות."],
+["הערה: “ראו גם: אתר משרד הבריאות”. מה תפקידה?",["הפניה למקורות נוספים","פירוש מילה","מומחיות הכותב","סיכום"],0,"ההערה שולחת את הקורא למקור נוסף."]]},
+{t:"משפט השוואה",s:"עכשיו עברית, עמוד 64 · תרגול 69–74",l:["משפט השוואה טוב כולל <b>נתון מכל צד</b> ומילת השוואה: לעומת זאת, ואילו, בעוד ש.","דוגמה: אחוז הבנים שקונים בגדים הוא 16%, לעומת זאת בקרב בנות הוא 29%."],
+q:[["בקרב בנים 16% קונים בגדים, ___ בקרב בנות 29%.",["ולכן","ואילו","בנוסף","כיוון ש"],1,"ואילו מציבה שני נתונים זה מול זה."],
+["איזה משפט הוא משפט השוואה טוב?",["הגרף יפה מאוד","29% קונים בגדים","בקרב בנים 16%, לעומת זאת בקרב בנות 29%","בנות קונות בגדים"],2,"רק הוא כולל שני נתונים ומילת השוואה."]]},
+{t:"מילים נרדפות ומנוגדות",s:"עכשיו עברית, עמוד 201",l:["<b>נרדפות</b>: משמעות דומה (גדול, ענק).","<b>מנוגדות</b>: משמעות הפוכה (גדול, קטן).","שימי לב: שאלה על נרדפות מבקשת דומה, ושאלה על מנוגדות מבקשת הפוך."],
+q:[["מה נרדף ל״נהדר״?",["גרוע","מצוין","קטן","איטי"],1,"נהדר ומצוין הן שתיהן חיוביות מאוד."],
+["מה ההפך מ״נדיב״?",["קמצן","אדיב","עשיר","שמח"],0,"נדיב נותן בשמחה, וקמצן חוסך ולא נותן."],
+["איזה זוג הוא מנוגד?",["חכם – נבון","מהיר – זריז","שמח – עצוב","יפה – נאה"],2,"שמח ועצוב הפוכים. שאר הזוגות נרדפים."]]},
+{t:"חלקי דיבור",s:"חוטבים לשון, עמודים 236–239",l:["<b>שם עצם</b>: אדם, מקום, חפץ או רעיון (ספר, חופש).","<b>שם תואר</b>: מתאר שם עצם (גדול, מרתק).","<b>פועל</b>: פעולה, ויש לו זמן (קרא, יקרא)."],
+q:[["הילדה הקטנה רצה בגינה. מהו שם התואר?",["ילדה","קטנה","רצה","גינה"],1,"קטנה מתארת את הילדה."],
+["התלמידים קראו ספר מרתק. מהו הפועל?",["תלמידים","קראו","ספר","מרתק"],1,"קראו היא פעולה בזמן עבר."],
+["איזו מילה היא שם עצם?",["מהיר","ישבו","חופש","יפה"],2,"חופש הוא רעיון, כלומר שם עצם."]]},
+{t:"צירופים: שם ותוארו וסמיכות",s:"חוטבים לשון, עמודים 243–246",l:["<b>שם ותוארו</b>: התואר מתאים לשם בזכר/נקבה, ביחיד/רבים ובידיעה: ילדה חכמה, הילדים החכמים.","<b>סמיכות</b>: שני שמות עצם צמודים. הראשון בלי ה׳ הידיעה: בית הספר, דלת הכיתה."],
+q:[["איזה צירוף נכון?",["ספרים מעניין","ספרים מעניינים","ספר מעניינים","ספרה מעניין"],1,"ספרים ברבים וזכר, ולכן מעניינים."],
+["איזה צירוף הוא סמיכות?",["דלת גדולה","כיתה גדולה","דלת הכיתה","תלמיד חכם"],2,"שני שמות עצם: דלת (בלי ה׳) וכיתה."],
+["התלמידה ___ זכתה בפרס.",["חכמה","החכמה","חכמים","החכם"],1,"התלמידה מיודעת, לכן גם התואר מיודע: החכמה."]]}
+];
+let cur=0,A={};
+try{A=JSON.parse(localStorage.getItem("heb8")||"{}")}catch(e){}
+const save=()=>{try{localStorage.setItem("heb8",JSON.stringify(A))}catch(e){}};
+const $=id=>document.getElementById(id);
+const stat=i=>{const n=T[i].q.length;let d=0,c=0;T[i].q.forEach((x,j)=>{const a=A[i+"-"+j];if(a!==undefined){d++;if(a===x[2])c++}});return{n,d,c}};
+function nav(){$("nav").innerHTML=T.map((t,i)=>{const s=stat(i);return `<button data-i="${i}" ${i===cur?'aria-current="true"':''} class="${s.d===s.n?'done':''}">${t.t}</button>`}).join("")}
+function view(){
+const t=T[cur],s=stat(cur);
+let h=`<section class="sheet les"><h2><span>${t.t}</span></h2><div class="src">${t.s}</div>${t.l.map(x=>`<p>${x}</p>`).join("")}</section>`;
+if(t.p)h+=`<section class="sheet plain"><p>${t.p}</p></section>`;
+t.q.forEach((x,j)=>{const a=A[cur+"-"+j];
+h+=`<div class="q"><p>${x[0]}</p>`+x[1].map((o,k)=>`<button class="o ${a===undefined?'':k===x[2]?'ok':k===a?'no':''}" data-q="${j}" data-k="${k}" ${a===undefined?'':'disabled'}>${o}</button>`).join("");
+if(a!==undefined)h+=`<p class="why">${a===x[2]?'נכון! ':'לא נכון. '}${x[3]}</p>`;
+h+="</div>"});
+h+=`<div class="bar"><span class="score" aria-live="polite">${s.c} מתוך ${s.n} נכונות</span><span>`+
+(cur>0?`<button class="g" data-go="-1">הקודם</button> `:"")+(s.d?`<button class="g" data-reset="1">תרגול מחדש</button> `:"")+(cur<T.length-1?`<button data-go="1">הנושא הבא</button>`:"")+`</span></div>`;
+$("v").innerHTML=h}
+function draw(){nav();view()}
+document.addEventListener("click",e=>{
+const b=e.target.closest("button");if(!b)return;const d=b.dataset;
+if(d.i!==undefined){cur=+d.i;draw();scrollTo(0,0)}
+else if(d.q!==undefined){A[cur+"-"+d.q]=+d.k;save();draw()}
+else if(d.go){cur+=+d.go;draw();scrollTo(0,0)}
+else if(d.reset){T[cur].q.forEach((x,j)=>delete A[cur+"-"+j]);save();draw()}});
+draw();
+</script>
+</body>
+</html>
